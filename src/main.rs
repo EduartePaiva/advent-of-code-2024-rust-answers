@@ -1,16 +1,16 @@
 use std::{fs::File, io::Read};
 
 use advent_of_code_2024_answers::questions::{
-    question01::question1,
+    question01::{question1, question1_part_2},
     question02::{question02, question02_1_safe},
 };
 
 fn main() {
-    println!("question 1 answer: {}", solving_question_1());
+    println!("question 1 answer: {:?}", solving_question_1());
     println!("question 2 answer: {:?}", solving_question_2());
 }
 
-fn solving_question_1() -> i64 {
+fn solving_question_1() -> (i64, i64) {
     let mut input: String = String::new();
     File::open("./src/q1_input.txt")
         .expect("error opening the file")
@@ -25,7 +25,10 @@ fn solving_question_1() -> i64 {
         vec1.push(nums2[0].parse().unwrap());
         vec2.push(nums2[1].parse().unwrap());
     }
-    question1(vec1, vec2)
+    (
+        question1(vec1.clone(), vec2.clone()),
+        question1_part_2(vec1, vec2),
+    )
 }
 
 fn solving_question_2() -> (i32, i32) {
