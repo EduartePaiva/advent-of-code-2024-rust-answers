@@ -1,7 +1,7 @@
 // advent of code question 3
 
 fn calc_possible_mul(input: &[u8]) -> i64 {
-    // negative numbers don't exists
+    //negative numbers don't exists
     // numbers are 1-3 digits
     // get first number
     let mut first = 0;
@@ -44,9 +44,8 @@ fn calc_possible_mul(input: &[u8]) -> i64 {
 pub fn question03(input: String) -> i64 {
     let input = input.as_bytes();
     let mut res = 0;
-    let mul = [b'm', b'u', b'l', b'('];
     for i in 0..input.len() - 4 {
-        if &input[i..i + 4] == &mul {
+        if &input[i..i + 4] == b"mul(" {
             let ans = calc_possible_mul(&input[i + 4..]);
             res += ans;
         }
@@ -57,21 +56,14 @@ pub fn question03_part_2(input: String) -> i64 {
     let input = input.as_bytes();
     let mut res = 0;
     let mut enabled = true;
-    let dont = [b'd', b'o', b'n', b'\'', b't', b'(', b')'];
-    let do_ = [b'd', b'o', b'(', b')'];
-    let mul = [b'm', b'u', b'l', b'('];
     for i in 0..input.len() - 4 {
-        if &input[i..i + 4] == &do_ {
-            enabled = true;
-        }
-
-        if i + 7 < input.len() && &input[i..i + 7] == &dont {
-            enabled = false;
-        }
-
-        if enabled && &input[i..i + 4] == &mul {
+        if enabled && &input[i..i + 4] == b"mul(" {
             let ans = calc_possible_mul(&input[i + 4..]);
             res += ans;
+        } else if &input[i..i + 4] == b"do()" {
+            enabled = true;
+        } else if i + 7 < input.len() && &input[i..i + 7] == b"don't()" {
+            enabled = false;
         }
     }
     res
