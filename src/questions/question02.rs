@@ -30,7 +30,7 @@ pub fn question02(input: Vec<Vec<i32>>) -> i32 {
 
     res
 }
-pub fn question02_1_safe(input: Vec<Vec<i32>>) -> i32 {
+pub fn question02_part_2(input: Vec<Vec<i32>>) -> i32 {
     // The levels are either all increasing or all decreasing.
     //Any two adjacent levels differ by at least one and at most three.
     // now it can tolerate a single bad level
@@ -70,7 +70,7 @@ mod tests {
     #[test]
     fn test2() {
         assert_eq!(
-            question02_1_safe(vec![
+            question02_part_2(vec![
                 vec![7, 6, 4, 2, 1],
                 vec![1, 2, 7, 8, 9],
                 vec![9, 7, 6, 2, 1],
