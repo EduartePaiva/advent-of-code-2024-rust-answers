@@ -3,7 +3,7 @@ use std::{fs::File, io::Read};
 use advent_of_code_2024_answers::questions::{
     question01::{question1, question1_part_2},
     question02::{question02, question02_part_2},
-    question03::question03,
+    question03::{question03, question03_part_2},
 };
 
 fn main() {
@@ -58,5 +58,5 @@ fn solving_question_3() -> (i64, i64) {
         .read_to_string(&mut input_q3)
         .expect("Some error converting to string");
 
-    (question03(input_q3.clone()), 0)
+    (question03(input_q3.clone()), question03_part_2(input_q3))
 }
