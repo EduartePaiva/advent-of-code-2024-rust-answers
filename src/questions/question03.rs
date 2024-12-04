@@ -1,7 +1,7 @@
 // advent of code question 3
 
 fn calc_possible_mul(input: &[u8]) -> i64 {
-    //negative numbers don't exists
+    // negative numbers don't exists
     // numbers are 1-3 digits
     // get first number
     let mut first = 0;

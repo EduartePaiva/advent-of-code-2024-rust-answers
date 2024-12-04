@@ -4,12 +4,14 @@ use advent_of_code_2024_answers::questions::{
     question01::{question1, question1_part_2},
     question02::{question02, question02_part_2},
     question03::{question03, question03_part_2},
+    question04::{question04, question04_part_2},
 };
 
 fn main() {
     println!("question 1 answer: {:?}", solving_question_1());
     println!("question 2 answer: {:?}", solving_question_2());
     println!("question 3 answer: {:?}", solving_question_3());
+    println!("question 4 answer: {:?}", solving_question_4());
 }
 
 fn solving_question_1() -> (i64, i64) {
@@ -59,4 +61,15 @@ fn solving_question_3() -> (i64, i64) {
         .expect("Some error converting to string");
 
     (question03(input_q3.clone()), question03_part_2(input_q3))
+}
+
+fn solving_question_4() -> (i32, i32) {
+    let mut input_q4: String = String::new();
+    File::open("./src/q4_input.txt")
+        .expect("error opening the file")
+        .read_to_string(&mut input_q4)
+        .expect("Some error converting to string");
+    let input: Vec<_> = input_q4.split('\n').collect();
+
+    (question04(input.clone()), question04_part_2(input))
 }
