@@ -1,10 +1,11 @@
 use std::{fs::File, io::Read};
 
 use advent_of_code_2024_answers::questions::{
-    question01::{question1, question1_part_2},
+    question01::{question01, question1_part_2},
     question02::{question02, question02_part_2},
     question03::{question03, question03_part_2},
     question04::{question04, question04_part_2},
+    question05::question05,
 };
 
 fn main() {
@@ -12,15 +13,20 @@ fn main() {
     println!("question 2 answer: {:?}", solving_question_2());
     println!("question 3 answer: {:?}", solving_question_3());
     println!("question 4 answer: {:?}", solving_question_4());
+    println!("question 5 answer: {:?}", solving_question_5());
 }
 
-fn solving_question_1() -> (i64, i64) {
+fn read_the_file(path: &str) -> String {
     let mut input: String = String::new();
-    File::open("./src/q1_input.txt")
+    File::open(path)
         .expect("error opening the file")
         .read_to_string(&mut input)
         .expect("Some error converting to string");
+    input
+}
 
+fn solving_question_1() -> (i64, i64) {
+    let input = read_the_file("./src/q1_input.txt");
     let mut vec1: Vec<i64> = vec![];
     let mut vec2: Vec<i64> = vec![];
 
@@ -30,18 +36,13 @@ fn solving_question_1() -> (i64, i64) {
         vec2.push(nums2[1].parse().unwrap());
     }
     (
-        question1(vec1.clone(), vec2.clone()),
+        question01(vec1.clone(), vec2.clone()),
         question1_part_2(vec1, vec2),
     )
 }
 
 fn solving_question_2() -> (i32, i32) {
-    let mut input_q2: String = String::new();
-    File::open("./src/q2_input.txt")
-        .expect("error opening the file")
-        .read_to_string(&mut input_q2)
-        .expect("Some error converting to string");
-
+    let input_q2 = read_the_file("./src/q2_input.txt");
     let mut input: Vec<Vec<i32>> = vec![];
     for nums in input_q2.split('\n') {
         let nums2: Vec<i32> = nums
@@ -54,22 +55,16 @@ fn solving_question_2() -> (i32, i32) {
 }
 
 fn solving_question_3() -> (i64, i64) {
-    let mut input_q3: String = String::new();
-    File::open("./src/q3_input.txt")
-        .expect("error opening the file")
-        .read_to_string(&mut input_q3)
-        .expect("Some error converting to string");
-
-    (question03(input_q3.clone()), question03_part_2(input_q3))
+    let input = read_the_file("./src/q3_input.txt");
+    (question03(input.clone()), question03_part_2(input))
 }
 
 fn solving_question_4() -> (i32, i32) {
-    let mut input_q4: String = String::new();
-    File::open("./src/q4_input.txt")
-        .expect("error opening the file")
-        .read_to_string(&mut input_q4)
-        .expect("Some error converting to string");
+    let input_q4 = read_the_file("./src/q4_input.txt");
     let input: Vec<_> = input_q4.split('\n').collect();
-
     (question04(input.clone()), question04_part_2(input))
+}
+fn solving_question_5() -> (i64, i64) {
+    let input_q4 = read_the_file("./src/q5_input.txt");
+    (question05(&input_q4), 0)
 }

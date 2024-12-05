@@ -2,7 +2,7 @@
 
 use std::collections::HashMap;
 
-pub fn question1(mut list1: Vec<i64>, mut list2: Vec<i64>) -> i64 {
+pub fn question01(mut list1: Vec<i64>, mut list2: Vec<i64>) -> i64 {
     if list1.len() != list2.len() {
         panic!("Both lists should have same size");
     }
@@ -38,7 +38,7 @@ mod tests {
     #[test]
     fn test1() {
         assert_eq!(
-            question1(vec![3, 4, 2, 1, 3, 3], vec![4, 3, 5, 3, 9, 3]),
+            question01(vec![3, 4, 2, 1, 3, 3], vec![4, 3, 5, 3, 9, 3]),
             11
         )
     }
