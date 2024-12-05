@@ -5,7 +5,7 @@ use advent_of_code_2024_answers::questions::{
     question02::{question02, question02_part_2},
     question03::{question03, question03_part_2},
     question04::{question04, question04_part_2},
-    question05::question05,
+    question05::{question05, question05_part_2},
 };
 
 fn main() {
@@ -30,7 +30,7 @@ fn solving_question_1() -> (i64, i64) {
     let mut vec1: Vec<i64> = vec![];
     let mut vec2: Vec<i64> = vec![];
 
-    for nums in input.split('\n') {
+    for nums in input.lines() {
         let nums2: Vec<_> = nums.split_whitespace().collect();
         vec1.push(nums2[0].parse().unwrap());
         vec2.push(nums2[1].parse().unwrap());
@@ -44,7 +44,7 @@ fn solving_question_1() -> (i64, i64) {
 fn solving_question_2() -> (i32, i32) {
     let input_q2 = read_the_file("./src/q2_input.txt");
     let mut input: Vec<Vec<i32>> = vec![];
-    for nums in input_q2.split('\n') {
+    for nums in input_q2.lines() {
         let nums2: Vec<i32> = nums
             .split_whitespace()
             .map(|v| v.parse().unwrap())
@@ -61,10 +61,10 @@ fn solving_question_3() -> (i64, i64) {
 
 fn solving_question_4() -> (i32, i32) {
     let input_q4 = read_the_file("./src/q4_input.txt");
-    let input: Vec<_> = input_q4.split('\n').collect();
+    let input: Vec<_> = input_q4.lines().collect();
     (question04(input.clone()), question04_part_2(input))
 }
 fn solving_question_5() -> (i64, i64) {
-    let input_q4 = read_the_file("./src/q5_input.txt");
-    (question05(&input_q4), 0)
+    let input = read_the_file("./src/q5_input.txt");
+    (question05(&input), question05_part_2(&input))
 }
