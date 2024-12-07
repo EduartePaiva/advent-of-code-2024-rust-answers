@@ -7,6 +7,7 @@ use advent_of_code_2024_answers::questions::{
     question04::{question04, question04_part_2},
     question05::{question05, question05_part_2},
     question06::{question06, question06_part_2},
+    question07::{question07, question07_part_2},
 };
 
 fn main() {
@@ -15,7 +16,8 @@ fn main() {
     println!("question 3 answer: {:?}", solving_question_3());
     println!("question 4 answer: {:?}", solving_question_4());
     println!("question 5 answer: {:?}", solving_question_5());
-    println!("question 6 answer: {:?}", solving_question_6());
+    // println!("question 6 answer: {:?}", solving_question_6());
+    println!("question 7 answer: {:?}", solving_question_7());
 }
 
 fn read_the_file(path: &str) -> String {
@@ -73,4 +75,8 @@ fn solving_question_5() -> (i64, i64) {
 fn solving_question_6() -> (i64, i64) {
     let input = read_the_file("./src/q6_input.txt");
     (question06(&input), question06_part_2(&input))
+}
+fn solving_question_7() -> (i64, i64) {
+    let input = read_the_file("./src/q7_input.txt");
+    (question07(&input), question07_part_2(&input))
 }
