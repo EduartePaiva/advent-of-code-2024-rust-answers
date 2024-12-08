@@ -69,7 +69,6 @@ pub fn question08_part_2(input: &str) -> i64 {
                     continue;
                 }
                 locations.insert(*antenna);
-                locations.insert(*antenna_nei);
 
                 let (nei_row, nei_col) = *antenna_nei;
                 let (diff_r, diff_c) = (nei_row - cur_row, nei_col - cur_col);
