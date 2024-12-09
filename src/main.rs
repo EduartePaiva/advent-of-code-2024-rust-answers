@@ -1,3 +1,4 @@
+#![allow(dead_code)]
 use std::{fs::File, io::Read};
 
 use advent_of_code_2024_answers::questions::{
@@ -9,17 +10,19 @@ use advent_of_code_2024_answers::questions::{
     question06::{question06, question06_part_2},
     question07::{question07, question07_part_2},
     question08::{question08, question08_part_2},
+    question09::{question09, question09_part_2},
 };
 
 fn main() {
-    println!("question 1 answer: {:?}", solving_question_1());
-    println!("question 2 answer: {:?}", solving_question_2());
-    println!("question 3 answer: {:?}", solving_question_3());
-    println!("question 4 answer: {:?}", solving_question_4());
-    println!("question 5 answer: {:?}", solving_question_5());
-    // println!("question 6 answer: {:?}", solving_question_6());
-    println!("question 7 answer: {:?}", solving_question_7());
-    println!("question 8 answer: {:?}", solving_question_8());
+    // println!("question 1 answer: {:?}", solving_question_1());
+    // println!("question 2 answer: {:?}", solving_question_2());
+    // println!("question 3 answer: {:?}", solving_question_3());
+    // println!("question 4 answer: {:?}", solving_question_4());
+    // println!("question 5 answer: {:?}", solving_question_5());
+    // // println!("question 6 answer: {:?}", solving_question_6());
+    // println!("question 7 answer: {:?}", solving_question_7());
+    // println!("question 8 answer: {:?}", solving_question_8());
+    println!("question 9 answer: {:?}", solving_question_9());
 }
 
 fn read_the_file(path: &str) -> String {
@@ -85,4 +88,8 @@ fn solving_question_7() -> (i64, i64) {
 fn solving_question_8() -> (i64, i64) {
     let input = read_the_file("./src/q8_input.txt");
     (question08(&input), question08_part_2(&input))
+}
+fn solving_question_9() -> (i64, i64) {
+    let input = read_the_file("./src/q9_input.txt");
+    (question09(&input), question09_part_2(&input))
 }
